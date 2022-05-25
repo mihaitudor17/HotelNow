@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="room_id" Type="bigint" Nullable="false" />
+    <Property Name="user_id" Type="bigint" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="state" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Feature">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="room_id" Type="bigint" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+    <Property Name="deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Offer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="start_date" Type="date" Nullable="false" />
+    <Property Name="number_of_days" Type="int" Nullable="false" />
+    <Property Name="price_reduction" Type="float" Nullable="false" />
+    <Property Name="deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="room_id" Type="bigint" Nullable="false" />
+    <Property Name="image" Type="image" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="number" Type="bigint" Nullable="false" />
+    <Property Name="price" Type="float" Nullable="false" />
+    <Property Name="number_of_rooms" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="deleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Bookings_Room">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bookings_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Feature_Room">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="Feature" Type="Self.Feature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Feature">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photo_Room">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddFeature" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="room_id" Type="bigint" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="price" Type="float" Mode="In" />
+  </Function>
+  <Function Name="AddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="surname" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="BookARoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="room_id" Type="bigint" Mode="In" />
+    <Parameter Name="user_id" Type="bigint" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAllBookingsOfARoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="room_id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAllBookingsOfAUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAllFeaturesOfARoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="room_id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAllOffers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllPhotosOfARoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="room_id" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="GetAllRooms" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ModifyBooking" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user_id" Type="bigint" Mode="In" />
+    <Parameter Name="room_id" Type="bigint" Mode="In" />
+    <Parameter Name="date" Type="date" Mode="In" />
+    <Parameter Name="state" Type="nvarchar" Mode="In" />
+    <Parameter Name="deleted" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="ModifyUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="bigint" Mode="In" />
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="surname" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="HotelModelStoreContainer">
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Feature" EntityType="Self.Feature" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Offer" EntityType="Self.Offer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Bookings_Room" Association="Self.FK_Bookings_Room">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Bookings_User" Association="Self.FK_Bookings_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Feature_Room" Association="Self.FK_Feature_Room">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Feature" EntitySet="Feature" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photo_Room" Association="Self.FK_Photo_Room">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="Photo" EntitySet="Photo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

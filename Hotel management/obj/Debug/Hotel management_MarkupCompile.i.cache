@@ -1,0 +1,20 @@
+﻿Hotel management
+
+
+winexe
+C#
+.cs
+C:\GitHub\Hotel-management\Hotel management\obj\Debug\
+Hotel_management
+none
+false
+DEBUG;TRACE
+C:\GitHub\Hotel-management\Hotel management\App.xaml
+7-864537732
+2-1957146511
+442089723367
+27251123688
+MainWindow.xaml;Views\AdminView.xaml;Views\BookedRoomsView.xaml;Views\BookRoomWindow.xaml;Views\BrowseRooms.xaml;Views\OffersView.xaml;Views\SignInWindow.xaml;
+
+True
+

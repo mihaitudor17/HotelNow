@@ -1,0 +1,29 @@
+﻿<Window x:Class="Hotel_management.Views.BookedRoomsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hotel_management.Views"
+        mc:Ignorable="d"
+        Title="BookedRoomsView" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ListBox Name="grid"  ItemsSource="{Binding BookTime}" SelectionChanged="ListBox_SelectionChanged"/>
+        <Grid  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Margin="5" Grid.Column="1" Content="Cancel booking"  Click="Button_Click"/>
+            <Button Margin="5" Grid.Column="3" Content="Close"  Click="Button_Click_1"/>
+        </Grid>
+    </Grid>
+</Window>
