@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\GitHub\Hotel-management\Hotel management\obj\Debug\
+C:\GitHub\HotelNow\Hotel management\obj\Debug\
 Hotel_management
 none
 false
 DEBUG;TRACE
-C:\GitHub\Hotel-management\Hotel management\App.xaml
+C:\GitHub\HotelNow\Hotel management\App.xaml
 7-864537732
 2-1957146511
 43-123155311
-27251123688
+271700737272
 MainWindow.xaml;Views\AdminView.xaml;Views\BookedRoomsView.xaml;Views\BookRoomWindow.xaml;Views\BrowseRooms.xaml;Views\OffersView.xaml;Views\SignInWindow.xaml;
 
 False

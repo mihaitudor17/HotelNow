@@ -6,37 +6,82 @@
         xmlns:local="clr-namespace:Hotel_management.Views" xmlns:viewmodels="clr-namespace:Hotel_management.Viewmodels"
         mc:Ignorable="d"
         Title="BookRoomWindow" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/Background.webp"></ImageBrush>
+    </Window.Background>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <DatePicker Name="Calendar" SelectedDate="{Binding Date}" Visibility="Visible"/>
-        <Label Name="DaysLabel" Grid.Column="1" Content="How many days?" Visibility="Visible"/>
-        <TextBox Name="DaysTextBox" Grid.Column="2" Text="{Binding NumberOfDays}" Visibility="Visible"/>
-        <Button Grid.Column="4" Grid.Row="2" Height="50" Content="Book" Click="Button_Click"/>
+        <TextBlock Text="From:" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" FontSize="20"></TextBlock>
+        <Calendar Grid.Row="1" Name="Calendar" SelectedDate="{Binding Date}" Visibility="Visible" />
+        <TextBlock Name="DaysLabel" Grid.Row="2" Text="Number of days:" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" FontSize="20"></TextBlock>
+        <Border Grid.Row="3" Background="AliceBlue" Margin="10">
+        <TextBox Name="DaysTextBox" Text="{Binding NumberOfDays}" Visibility="Visible" FontSize="15" HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Center"/>
+        </Border>
+        <Button Grid.Row="4"  Margin="30 5 30 5" 
+                Content="Deals" Click="Button_Click_2"/>
+        <TextBlock Grid.Column="1" Grid.Row="2" Text="Features:" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" FontSize="20"></TextBlock>
+        <ListBox Margin="10" Name="ListBox" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding Features}"
+                 DisplayMemberPath="Item1"
+                 SelectedItem="{Binding SelectedFeature}" ></ListBox>
+        <Button Grid.Row="4" Grid.Column="1"  Margin="30 5 30 5"
+                Content="Add" Click="Button_Click_1"/>
+        <Rectangle Margin="5" Grid.Column="2" Grid.RowSpan="5" VerticalAlignment="Stretch" Fill="AliceBlue" Width="2" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Column="3" Text="Price:" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" FontSize="20"></TextBlock>
+        <Separator Background="AliceBlue" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top"></Separator>
+        <Border Grid.Row="1" Grid.Column="3" Background="White">
+        <TextBlock  Text="{Binding Price}" VerticalAlignment="Center" FontSize="20" FontWeight="SemiBold" HorizontalAlignment="Center"></TextBlock>
+        </Border>
+            <Grid Grid.Row="3" Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Margin="20" Click="Button_Click">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/Resources/buy.png" Grid.Column="0"></Image>
+                <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="25" FontWeight="SemiBold">Book now</TextBlock>
+            </Grid>
+            </Button>
+            <Button Grid.Row="1" Content="X     Cancel" FontSize="25" FontWeight="SemiBold" Margin="20" Click="Button_Click_3"></Button>
+        </Grid>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Deals:" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="SemiBold" FontSize="20"></TextBlock>
+        <Border Grid.Row="1" Grid.Column="1" Background="White">
+        <StackPanel   Name="OfferPanel" >
+            <Label Content="{Binding Offer.name}"/>
+        </StackPanel>
+        </Border>
+        <!--<Label Name="DaysLabel" Grid.Column="1" Content="How many days?" Visibility="Hidden"/>-->
+        <!--<TextBox Name="DaysTextBox" Grid.Column="2" Text="{Binding NumberOfDays}" Visibility="Hidden"/>-->
+        <!--<Button Grid.Column="4" Grid.Row="2" Height="50" Content="Book" Click="Button_Click"/>
         <Label Grid.Column="3" Content="Price:"/>
-        <TextBlock Grid.Column="4" Text="{Binding Price}"/>
+        <TextBlock Grid.Column="4" />
         <ListBox Name="ListBox" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
                  ItemsSource="{Binding Features}"
                  DisplayMemberPath="Item1"
                  SelectedItem="{Binding SelectedFeature}"/>
         <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
                 Content="Add feature" Width="100" Click="Button_Click_1"/>
-        <Button Grid.Row="2" Height="50" Width="120"
-                Content="Deals" Click="Button_Click_2"/>
+        
         <StackPanel Grid.Row="1" Visibility="Hidden" Name="OfferPanel">
             <Label Content="Offer name:"/>
             <Label Content="{Binding Offer.name}"/>
-        </StackPanel>
+        </StackPanel>-->
     </Grid>
 </Window>

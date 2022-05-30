@@ -41,10 +41,6 @@ namespace Hotel_management.Views
             {
                 dc.Offer = offer;
                 dc.Date = offer.start_date;
-                Calendar.Visibility = Visibility.Hidden;
-                DaysLabel.Visibility = Visibility.Hidden;
-                DaysTextBox.Visibility = Visibility.Hidden;
-                OfferPanel.Visibility = Visibility.Visible;
             }
         }
 
@@ -99,7 +95,12 @@ namespace Hotel_management.Views
             var dc = DataContext as BookRoomVM;
             OffersView offersView = new OffersView(dc.CurrentRoom, dc.User_id);
             offersView.Show();
-            Close();
+            this.Close();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

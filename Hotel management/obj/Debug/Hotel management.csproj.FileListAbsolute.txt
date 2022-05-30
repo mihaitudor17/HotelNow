@@ -41,3 +41,46 @@ C:\GitHub\Hotel-management\Hotel management\obj\Debug\Hotel management.exe
 C:\GitHub\Hotel-management\Hotel management\obj\Debug\Hotel management.pdb
 C:\GitHub\Hotel-management\Hotel management\obj\Debug\Views\AdminView.g.cs
 C:\GitHub\Hotel-management\Hotel management\obj\Debug\Views\AdminView.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.csproj.AssemblyReference.cache
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.csproj.SuggestedBindingRedirects.cache
+C:\GitHub\HotelNow\Hotel management\obj\Debug\MainWindow.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\AdminView.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\BookedRoomsView.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\BookRoomWindow.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\BrowseRooms.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\OffersView.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\SignInWindow.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\App.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management_Content.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management_MarkupCompile.cache
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management_MarkupCompile.lref
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.exe
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.pdb
+C:\GitHub\HotelNow\Hotel management\bin\Debug\Hotel management.exe.config
+C:\GitHub\HotelNow\Hotel management\bin\Debug\Hotel management.exe
+C:\GitHub\HotelNow\Hotel management\bin\Debug\Hotel management.pdb
+C:\GitHub\HotelNow\Hotel management\bin\Debug\EntityFramework.dll
+C:\GitHub\HotelNow\Hotel management\bin\Debug\EntityFramework.SqlServer.dll
+C:\GitHub\HotelNow\Hotel management\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\GitHub\HotelNow\Hotel management\bin\Debug\System.Security.AccessControl.dll
+C:\GitHub\HotelNow\Hotel management\bin\Debug\System.Security.Permissions.dll
+C:\GitHub\HotelNow\Hotel management\bin\Debug\System.Security.Principal.Windows.dll
+C:\GitHub\HotelNow\Hotel management\bin\Debug\EntityFramework.xml
+C:\GitHub\HotelNow\Hotel management\bin\Debug\EntityFramework.SqlServer.xml
+C:\GitHub\HotelNow\Hotel management\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\GitHub\HotelNow\Hotel management\bin\Debug\System.Security.AccessControl.xml
+C:\GitHub\HotelNow\Hotel management\bin\Debug\System.Security.Permissions.xml
+C:\GitHub\HotelNow\Hotel management\bin\Debug\System.Security.Principal.Windows.xml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\MainWindow.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\AdminView.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\BookedRoomsView.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\BookRoomWindow.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\BrowseRooms.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\OffersView.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\SignInWindow.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.g.resources
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel_management.Properties.Resources.resources
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.csproj.GenerateResource.cache
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.csproj.CoreCompileInputs.cache
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.csproj.CopyComplete

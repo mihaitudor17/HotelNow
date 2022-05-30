@@ -9,12 +9,15 @@
     <Window.DataContext>
         <local1:OffersVM/>
     </Window.DataContext>
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/Background.webp"></ImageBrush>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Name="personsGrid" AutoGenerateColumns="False"
+        <DataGrid Margin="20" Grid.Row="0" Name="personsGrid" AutoGenerateColumns="False"
                   IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Visible"
                   ItemsSource="{Binding Offers}" 
                   SelectedItem="{Binding Path=SelectedOffer, Mode=TwoWay}">
@@ -25,6 +28,13 @@
                 <DataGridTextColumn Header="Discount" Binding="{Binding price_reduction}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Row="1" Content="Select offer" Width="100" Click="Button_Click"/>
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Select" Width="100" Click="Button_Click"/>
+        <Button Grid.Column="1" Content="Close" Width="100" Click="Button_Click1"/>
+        </Grid>
     </Grid>
 </Window>

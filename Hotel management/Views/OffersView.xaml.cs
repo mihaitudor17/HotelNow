@@ -36,5 +36,12 @@ namespace Hotel_management.Views
             bookRoomWindow.Show();
             Close();
         }
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            var dc = DataContext as OffersVM;
+            BookRoomWindow bookRoomWindow = new BookRoomWindow(dc.CurrentRoom, dc.User_id,null);
+            bookRoomWindow.Show();
+            Close();
+        }
     }
 }
