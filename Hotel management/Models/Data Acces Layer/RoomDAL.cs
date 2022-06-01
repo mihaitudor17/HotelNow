@@ -42,14 +42,13 @@ namespace Hotel_management.Models.Data_Acces_Layer
                 con.Close();
             }
         }
-
-        public ObservableCollection<BitmapFrame> GetAllPhotosOfARoom(int id)
+        public ObservableCollection<Photo> GetAllPhotosOfARoom(long id)
         {
             SqlConnection con = DALHelper.Connection;
             try
             {
                 SqlCommand cmd = new SqlCommand("GetAllPhotosOfARoom", con);
-                ObservableCollection<BitmapFrame> result = new ObservableCollection<BitmapFrame>();
+                ObservableCollection<Photo> result = new ObservableCollection<Photo>();
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlParameter paramId = new SqlParameter("@room_id", id);
                 cmd.Parameters.Add(paramId);
@@ -57,16 +56,13 @@ namespace Hotel_management.Models.Data_Acces_Layer
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    byte[] img = (byte[])reader[0];
-
-                    using (var stream = new MemoryStream(img))
+                    var tuc = reader[0];
+                    Photo photo = new Photo()
                     {
-                        var bitmap = BitmapFrame.Create(stream,
-                                                BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
-                        result.Add(bitmap);
-                    }
-
-                    //result.Add(reader[0].ToString());
+                        //id = (long)reader[0],
+                        image = (byte[])reader[0]
+                    };
+                    result.Add(photo);
                 }
                 reader.Close();
                 return result;
@@ -91,7 +87,7 @@ namespace Hotel_management.Models.Data_Acces_Layer
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    DateTime date= (DateTime)reader[0];
+                    DateTime date = (DateTime)reader[0];
                     result.Add(date);
                 }
                 reader.Close();
@@ -120,13 +116,13 @@ namespace Hotel_management.Models.Data_Acces_Layer
             }
         }
 
-        public ObservableCollection<Tuple<string, double>> GetAllFeaturesOfARoom(long id)
+        public ObservableCollection<Feature> GetAllFeaturesOfARoom(long id)
         {
             SqlConnection con = DALHelper.Connection;
             try
             {
                 SqlCommand cmd = new SqlCommand("GetAllFeaturesOfARoom", con);
-                ObservableCollection<Tuple<string, double>> result = new ObservableCollection<Tuple<string, double>>();
+                ObservableCollection<Feature> result = new ObservableCollection<Feature>();
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlParameter paramId = new SqlParameter("@room_id", id);
                 cmd.Parameters.Add(paramId);
@@ -134,9 +130,14 @@ namespace Hotel_management.Models.Data_Acces_Layer
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    string name = reader[0].ToString();
-                    double price = (double)reader[1];
-                    result.Add(new Tuple<string, double>(name, price));
+                    var turc = reader[0];
+                    Feature feature = new Feature()
+                    {
+                        //id = (long)reader[0],
+                        name = reader[0].ToString(),
+                        price = (double)reader[1]
+                    };
+                    result.Add(feature);
                 }
                 reader.Close();
                 return result;
@@ -144,6 +145,54 @@ namespace Hotel_management.Models.Data_Acces_Layer
             finally
             {
                 con.Close();
+            }
+        }
+
+        public void AddRoom(Room room)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("AddRoom", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlParameter paramName = new SqlParameter("@number", room.number);
+                SqlParameter paramRooms = new SqlParameter("@number_of_rooms", room.number_of_rooms);
+                SqlParameter paramPrice = new SqlParameter("@price", room.price);
+                cmd.Parameters.Add(paramName);
+                cmd.Parameters.Add(paramRooms);
+                cmd.Parameters.Add(paramPrice);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void ModifyRoom(Room room)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("ModifyRoom", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter paramId = new SqlParameter("@id", room.id);
+                SqlParameter paramNumber = new SqlParameter("@number", room.number);
+                SqlParameter paramRooms = new SqlParameter("@number_of_rooms", room.number_of_rooms);
+                SqlParameter paramPrice = new SqlParameter("@price", room.price);
+                cmd.Parameters.Add(paramId);
+                cmd.Parameters.Add(paramNumber);
+                cmd.Parameters.Add(paramRooms);
+                cmd.Parameters.Add(paramPrice);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteRoom(long id)
+        {
+            using (SqlConnection con = DALHelper.Connection)
+            {
+                SqlCommand cmd = new SqlCommand("DeleteRoom", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                SqlParameter paramId = new SqlParameter("@id", id);
+                cmd.Parameters.Add(paramId);
+                con.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     }

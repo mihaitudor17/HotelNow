@@ -99,10 +99,19 @@
                 <Label FontSize="20" Content="Price:"/>
                 <Label FontSize="20" Content="{Binding ShownRoom.price}"/>
             </StackPanel>
-            
+
         </Grid>
-        <Button Grid.Row="2" Grid.Column="0"
-                Content="Edit" Visibility="Hidden" Margin="15" Click="Button_Click_6" Name="EditButton"/>
+        <Grid  Margin="15"  Grid.Row="2" Grid.Column="0" Name="EditButton" Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        <Button
+                Content="Users"  Click="Button_Click_6" />
+            <Rectangle Margin="5" Grid.Column="1" VerticalAlignment="Stretch" Fill="Gray" Width="1"/>
+            <Button Grid.Column="1"
+                Content="Rooms" Click="Button_Click_7" />
+        </Grid>
         <Grid Margin="15" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Background="LightGray">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"></ColumnDefinition>

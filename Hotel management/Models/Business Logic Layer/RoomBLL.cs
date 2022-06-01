@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,24 @@ namespace Hotel_management.Models.Business_Logic_Layer
             return roomDAL.GetAllRooms();
         }
 
-        public ObservableCollection<BitmapFrame> GetAllPhotosOfARoom(int id)
+        public ObservableCollection<Photo> GetAllPhotosOfARoomWithIds(long id)
         {
             return roomDAL.GetAllPhotosOfARoom(id);
+        }
+        public ObservableCollection<BitmapFrame> GetAllPhotosOfARoom(long id)
+        {
+            ObservableCollection<BitmapFrame> result = new ObservableCollection<BitmapFrame>();
+            var xd = roomDAL.GetAllPhotosOfARoom(id);
+            for (int i = 0; i < xd.Count; i++)
+            {
+                using (var stream = new MemoryStream(xd[i].image))
+                {
+                    var bitmap = BitmapFrame.Create(stream,
+                                            BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
+                    result.Add(bitmap);
+                }
+            }
+            return result;
         }
 
         public ObservableCollection<DateTime> GetAllBookingsOfARoom(long id)
@@ -35,9 +51,23 @@ namespace Hotel_management.Models.Business_Logic_Layer
             roomDAL.BookARoom(room_id, user_id, date);
         }
 
-        public ObservableCollection<Tuple<string,double>> GetAllFeaturesOfARoom(long id)
+        public ObservableCollection<Feature> GetAllFeaturesOfARoom(long id)
         {
             return roomDAL.GetAllFeaturesOfARoom(id);
+        }
+
+        public void ModifyRoom(Room room)
+        {
+            roomDAL.ModifyRoom(room);
+        }
+
+        public void DeleteRoom(long id)
+        {
+            roomDAL.DeleteRoom(id);
+        }
+        public void AddRoom(Room room)
+        {
+            roomDAL.AddRoom(room);
         }
     }
 }

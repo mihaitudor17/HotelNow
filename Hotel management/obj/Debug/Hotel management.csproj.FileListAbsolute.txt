@@ -84,3 +84,9 @@ C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel_management.Properties.Resour
 C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.csproj.GenerateResource.cache
 C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.csproj.CoreCompileInputs.cache
 C:\GitHub\HotelNow\Hotel management\obj\Debug\Hotel management.csproj.CopyComplete
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\EditFeatures.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\EditRoomView.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\EditPhotoView.g.cs
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\EditFeatures.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\EditPhotoView.baml
+C:\GitHub\HotelNow\Hotel management\obj\Debug\Views\EditRoomView.baml

@@ -7,13 +7,15 @@
         mc:Ignorable="d"
         Title="BookedRoomsView" Height="300" Width="400"
         WindowStartupLocation="CenterScreen">
-    
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/Background.webp"></ImageBrush>
+    </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <ListBox Name="grid"  ItemsSource="{Binding BookTime}" SelectionChanged="ListBox_SelectionChanged"/>
+        <ListBox Margin="10" Name="grid"  ItemsSource="{Binding BookTime}" SelectionChanged="ListBox_SelectionChanged"/>
         <Grid  Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>

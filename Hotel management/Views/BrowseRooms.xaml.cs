@@ -121,5 +121,10 @@ namespace Hotel_management.Views
             adminView.Show();
         }
 
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            EditRoomView editRoomView = new EditRoomView();
+            editRoomView.Show();
+        }
     }
 }

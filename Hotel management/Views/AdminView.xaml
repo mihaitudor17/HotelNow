@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:Hotel_management.Views" xmlns:viewmodels="clr-namespace:Hotel_management.Viewmodels"
         mc:Ignorable="d"
         Title="AdminView" Height="800" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/Background.webp"></ImageBrush>
+    </Window.Background>
     <Window.DataContext>
         <viewmodels:AdminVM/>
     </Window.DataContext>
-    <Grid>
+    <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>

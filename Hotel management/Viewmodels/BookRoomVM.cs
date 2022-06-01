@@ -96,7 +96,9 @@ namespace Hotel_management.Viewmodels
             RoomBLL roomBLL = new RoomBLL();
             Dates = roomBLL.GetAllBookingsOfARoom(CurrentRoom.id);
             Features = new ObservableCollection<Tuple<string, double>>();
-            Features = roomBLL.GetAllFeaturesOfARoom(CurrentRoom.id);
+            var temp= roomBLL.GetAllFeaturesOfARoom(CurrentRoom.id);
+            for(int i=0;i<temp.Count;i++)
+            Features.Add(Tuple.Create(temp[i].name,temp[i].price));
             if (Features.Count > 0)
             {
                 SelectedFeature = Features[0];
