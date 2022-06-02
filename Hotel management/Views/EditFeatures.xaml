@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:Hotel_management.Views" xmlns:viewmodels="clr-namespace:Hotel_management.Viewmodels"
         mc:Ignorable="d"
         Title="EditFeaturesView" Height="450" Width="500">
-    <Grid>
+    <Window.Background>
+        <ImageBrush ImageSource="/Resources/Background.webp"></ImageBrush>
+    </Window.Background>
+    <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>

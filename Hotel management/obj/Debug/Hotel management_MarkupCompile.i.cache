@@ -16,5 +16,5 @@ C:\GitHub\HotelNow\Hotel management\App.xaml
 271700737272
 MainWindow.xaml;Views\EditFeatures.xaml;Views\AdminView.xaml;Views\BookedRoomsView.xaml;Views\BookRoomWindow.xaml;Views\BrowseRooms.xaml;Views\EditPhotoView.xaml;Views\EditRoomView.xaml;Views\OffersView.xaml;Views\SignInWindow.xaml;
 
-True
+False
 
